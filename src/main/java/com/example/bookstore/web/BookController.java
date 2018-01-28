@@ -54,17 +54,25 @@ public class BookController {
 
     // Rest Api provider methods
 
-    @RequestMapping(value = "/api", method = RequestMethod.GET)
+    @RequestMapping(value = "/books", method = RequestMethod.GET)
     public @ResponseBody
     List<Book> bookListRest() {
         return (List<Book>) repository.findAll();
     }
 
-    @RequestMapping(value = "/api/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/books/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Book findBookRest(@PathVariable("id") Long bookId) {
         return repository.findOne(bookId);
     }
+
+    // Adding new Book through curl
+    // curl -i -X POST -H "Content-Type:application/json" -d "{ \"title\" : \"Da Vinci Code\", \"author\" :
+    // \"Robert Langdon\", \"year\" : \"2001\", \"isbn\" : \"1232-23\", \"price\" : \"11,23\" }" http://localhost:8080/api/books
+
+    // Searching
+    // curl http://localhost:8080/api/books/search/findByTitle?title=Harry+Potter
+
 }
 
 
