@@ -21,14 +21,18 @@ public class BookController {
     @JsonIgnore
     private BookRepository repository;
 
-    @RequestMapping(value = "/")
 
+    @RequestMapping(value="/login")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/")
     public String index() {
         return "index";
     }
 
     @RequestMapping("/booklist")
-
     public String bookList(Model model) {
         model.addAttribute("books", repository.findAll());
         return "booklist";
@@ -72,6 +76,7 @@ public class BookController {
 
     // Searching
     // curl http://localhost:8080/api/books/search/findByTitle?title=Harry+Potter
+
 
 }
 
