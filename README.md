@@ -2,4 +2,4 @@ Bookstore project
 
 -----------------
 
-Spring Boot + Maven + Thymeleaf + JPA + H2 & Bootstrap
+Spring Boot + Spring Security + Maven + Thymeleaf + JPA + H2 & Bootstrap
