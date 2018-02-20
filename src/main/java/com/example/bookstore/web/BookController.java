@@ -29,7 +29,7 @@ public class BookController {
 
     @RequestMapping(value = "/")
     public String index() {
-        return "index";
+        return "index.html";
     }
 
     @RequestMapping("/booklist")

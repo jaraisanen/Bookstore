@@ -1,27 +1,33 @@
 package com.example.bookstore;
 
+import com.example.bookstore.domain.Book;
+import com.example.bookstore.domain.BookRepository;
 import com.example.bookstore.domain.User;
 import com.example.bookstore.domain.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
-import com.example.bookstore.domain.Book;
-import com.example.bookstore.domain.BookRepository;
-
 @SpringBootApplication
-public class BookstoreApplication {
-	private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
+public class BookstoreApplication extends SpringBootServletInitializer {
+    private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
 
-	public static void main(String[] args) {
-	    SpringApplication.run(BookstoreApplication.class, args);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder
+                                                         application) {
+        return application.sources(BookstoreApplication.class);
+    }
 
-	@Bean
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(BookstoreApplication.class, args);
+    }
+
+    @Bean
     public CommandLineRunner studentDemo(BookRepository brepository, UserRepository urepository) {
         return (args) -> {
             log.info("Inserting dummy data");
