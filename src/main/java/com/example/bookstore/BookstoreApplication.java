@@ -41,7 +41,7 @@ public class BookstoreApplication extends SpringBootServletInitializer {
             urepository.save(user1);
             urepository.save(user2);
 
-            log.info("Showing all students");
+            log.info("Showing all books");
             for (Book book : brepository.findAll()) {
                 log.info(book.toString());
             }

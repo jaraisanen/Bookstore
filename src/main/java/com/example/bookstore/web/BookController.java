@@ -29,7 +29,7 @@ public class BookController {
 
     @RequestMapping(value = "/")
     public String index() {
-        return "index.html";
+        return "index";
     }
 
     @RequestMapping("/booklist")
@@ -45,7 +45,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteStudent(@PathVariable("id") Long bookId, Model model) {
+    public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         repository.delete(bookId);
         return "redirect:../booklist";
     }
